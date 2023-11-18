@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Liens vers les fichiers CSS compilés de Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Ajouter un recours</title>
+</head>
+<body>
+    <div class="p-5 mx-5">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            Saisir vos informations
+                        </div>
+                        <div class="card-body">
+                            <form enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="module" class="form-label">Module</label>
+                                    <input type="text" class="form-control" id="module" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nature" class="form-label">Nature du recours (CC ou Examen)</label>
+                                    <input type="text" class="form-control" id="nature" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="noteAffichee" class="form-label">Note affichée</label>
+                                    <input type="number" class="form-control" id="noteAffichee" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="noteReelle" class="form-label">Note réelle</label>
+                                    <input type="number" class="form-control" id="noteReelle" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Ajouter</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Liens vers les fichiers JavaScript compilés de Bootstrap -->
+    <script src="chemin/vers/bootstrap.bundle.min.js"></script>
+</body>
+</html>
