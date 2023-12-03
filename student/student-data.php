@@ -1,13 +1,13 @@
 <?php 
-    require '../connect_bdd.php';
-    require './student.php';
+    require dirname(__DIR__).'/connect_bdd.php';
+    require __DIR__.'/student.php';
 
     function getStudent($id) {
         global $conn;
 
         try {
             $student_stmt = $conn->prepare(
-                "SELECT id, nom, prenom, email, groupe FROM `students` where id = :id"
+                "SELECT nom, prenom, email, groupe FROM `students` where id = :id"
             );
             $student_stmt->bindParam(':id', $id);
             $student_stmt->execute();
@@ -15,7 +15,6 @@
 
             if ($student_data) {
                 $student = new Student(
-                    $student_data['id'],
                     $student_data['nom'],
                     $student_data['prenom'],
                     $student_data['email'],
@@ -37,7 +36,7 @@
     
         try {
             $students_stmt = $conn->prepare(
-                "SELECT id, nom, prenom, email, groupe FROM `students`"
+                "SELECT nom, prenom, email, groupe FROM `students`"
             );
             $students_stmt->execute();
             $students_data = $students_stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -46,7 +45,6 @@
     
             foreach ($students_data as $student_data) {
                 $student = new Student(
-                    $student_data['id'],
                     $student_data['nom'],
                     $student_data['prenom'],
                     $student_data['email'],
@@ -62,6 +60,27 @@
             echo "Query failed: " . $e->getMessage();
         }
     }
+
+    function insertStudent($student) {
+        global $conn;
+
+        try {
+            $insert_stmt = $conn->prepare(
+                "INSERT INTO `students` (nom, prenom, email, groupe) VALUES (:nom, :prenom, :email, :groupe)"
+            );
+
+            $insert_stmt->bindParam(':nom', $student->nom);
+            $insert_stmt->bindParam(':prenom', $student->prenom);
+            $insert_stmt->bindParam(':email', $student->email);
+            $insert_stmt->bindParam(':groupe', $student->groupe);
+
+            $insert_stmt->execute();
+
+        } catch(PDOException $e) {
+            echo "Insert failed: " . $e->getMessage();
+            return false;
+        }
+}
     
 ?>
 

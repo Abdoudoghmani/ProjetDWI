@@ -1,5 +1,5 @@
 <?php
-    require './student/student-data.php';
+    require __DIR__.'/student/student-data.php';
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +39,10 @@
                         $students = getAllStudents();
                         foreach ($students as $student) {
                             echo "<tr>";
-                            echo "<td> ".$student->nom."/</td>";
-                            echo "<td> ".$student->prenom."/</td>";
-                            echo "<td> ".$student->email."/</td>";
-                            echo "<td> ".$student->groupe."/</td>";
+                            echo "<td> ".$student->nom."</td>";
+                            echo "<td> ".$student->prenom."</td>";
+                            echo "<td> ".$student->email."</td>";
+                            echo "<td> ".$student->groupe."</td>";
                             echo "</tr>";
                         }
 

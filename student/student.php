@@ -7,8 +7,7 @@
         public $groupe;
         public $recours;
 
-        public function __construct( $id, $nom, $prenom, $email, $groupe ) {
-            $this->id = $id;
+        public function __construct($nom, $prenom, $email, $groupe ) {
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->email = $email;
