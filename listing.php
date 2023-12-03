@@ -1,3 +1,7 @@
+<?php
+    require './student/student-data.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en" title="Coding design">
 
@@ -31,24 +35,18 @@
                         <td> lamari@gmail.com </td>
                         <td> 2</td>
                     </tr>
-                    <tr>
-                        <td>Abdou </td>
-                        <td> doughmani </td>
-                        <td> abdou@gmail.com </td>
-                        <td> 3</td>
-                    </tr>
-                    <tr>
-                        <td> Omar </td>
-                        <td> analyse </td>
-                        <td> Omar@gmail.com </td>
-                        <td> 1 </td>
-                    </tr>
-                    <tr>
-                        <td>kch </td>
-                        <td> wa7ed </td>
-                        <td> kch@gmail.com </td>
-                        <td> 1</td>
-                    </tr>
+                    <?php 
+                        $students = getAllStudents();
+                        foreach ($students as $student) {
+                            echo "<tr>";
+                            echo "<td> ".$student->nom."/</td>";
+                            echo "<td> ".$student->prenom."/</td>";
+                            echo "<td> ".$student->email."/</td>";
+                            echo "<td> ".$student->groupe."/</td>";
+                            echo "</tr>";
+                        }
+
+                    ?>
                 </tbody>
             </table>
         </section>
