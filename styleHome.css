@@ -102,3 +102,18 @@ img{
   .card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
     transform: scale3d(1, 1, 1);
   }
+  .btn-primary {
+
+    cursor: pointer;
+    border-color:#e6b30e!important;
+    color:#e6b30e;
+  }
+  .btn-primary:hover{
+    background-color: #e6b30e;
+    background-image: -webkit-linear-gradient(160deg, #071014 0%, #e6b30e 100%)!important;
+    background-image: -moz-linear-gradient(160deg, #071014 0%, #e6b30e 100%)!important;
+    background-image: -o-linear-gradient(160deg, #071014 0%, #e6b30e 100%)!important;
+    background-image: linear-gradient(160deg, #071014 0%, #e6b30e 100%)!important;
+    
+    color: #e6b30e!important;
+  }
