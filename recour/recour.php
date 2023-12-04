@@ -7,8 +7,7 @@
         public $note_reel;
         public $status;
 
-        public function __construct($id, $module, $nature, $note_affiche, $note_reel, $status) {
-            $this->id = $id;
+        public function __construct($module, $nature, $note_affiche, $note_reel, $status) {
             $this->module = $module;
             $this->nature = $nature;
             $this->note_affiche = $note_affiche;
