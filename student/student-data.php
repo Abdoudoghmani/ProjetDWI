@@ -31,6 +31,47 @@
           }
     }
 
+    function getStudents($search_text) {
+        global $conn;
+    
+        try {
+            $students_stmt = $conn->prepare(
+                "
+                SELECT nom, prenom, email, groupe 
+                FROM `students`
+                WHERE nom like :search_text
+                or prenom like :search_text
+                or email like :search_text
+                or concat(nom, ' ', prenom) like :search_text
+                or concat(prenom, ' ', nom) like :search_text
+                "
+            );
+
+            $search_text = '%'.$search_text.'%';
+            $students_stmt->bindParam(':search_text', $search_text);
+            $students_stmt->execute();
+            $students_data = $students_stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+            $students = [];
+    
+            foreach ($students_data as $student_data) {
+                $student = new Student(
+                    $student_data['nom'],
+                    $student_data['prenom'],
+                    $student_data['email'],
+                    $student_data['groupe']
+                );
+    
+                $students[] = $student;
+            }
+    
+            return $students;
+    
+        } catch(PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
+
     function getAllStudents() {
         global $conn;
     

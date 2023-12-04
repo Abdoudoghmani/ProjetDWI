@@ -29,14 +29,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td> Youcef</td>
-                        <td> LAMARI </td>
-                        <td> lamari@gmail.com </td>
-                        <td> 2</td>
-                    </tr>
                     <?php 
-                        $students = getAllStudents();
+                        if(isset($_GET['search'])) {
+                            $students = getStudents($_GET['search']);
+                        } else {
+                            $students = getAllStudents();
+                        }
+                        
                         foreach ($students as $student) {
                             echo "<tr>";
                             echo "<td> ".$student->nom."</td>";

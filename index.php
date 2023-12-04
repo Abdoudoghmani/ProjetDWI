@@ -44,8 +44,8 @@
                                 <a class="nav-link" href="listing.php">List Etudiant</a>
                             </li>
                         </ul>
-                        <form class="d-flex"action="">
-                            <input type="search" placeholder="search" class="form-control">
+                        <form class="d-flex" action="listing.php" method="get">
+                            <input name="search" type="search" placeholder="search" class="form-control">
                             <input type="submit" value="search" class="btn btn-primary">
                         </form>
 
