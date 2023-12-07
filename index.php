@@ -37,25 +37,14 @@
                                 <a class="nav-link" href="Ajouter un étudiant.html">Ajouter un Etudiant
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Ajoute un recour.html">Ajouter un Recours</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="listing.php">List Etudiant</a>
-                            </li>
                         </ul>
-                        <form class="d-flex" action="listing.php" method="get">
-                            <input name="search" type="search" placeholder="search" class="form-control">
-                            <input type="submit" value="search" class="btn btn-primary">
-                        </form>
-
                     </div>
                 </div>
             </nav>
             <!-- navbar code -->
             <div class="middle">
-                <h1 class="text-white display-3 fw-bold">We Help you to find <span class="theme-text">a better
-                        home</span>.</h1>
+                <h1 class="text-white display-3 fw-bold">Tableau de Bord <span class="theme-text">
+                        Gestion des Recours</span>.</h1>
             </div>
         </div>
         <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -66,9 +55,8 @@
     </section>
     <body>
     <div class="container ">
-
           <div class="row justify-content-center">
-            <div class="col-3">
+            <div class="col-4">
               <div class="card item-card card-block">
                 <a href="Ajouter un étudiant.html">
             <img src="etudiants.webp" >
@@ -77,29 +65,10 @@
                 <p class="card-text">3omar l3ziz afdal prof flbachariya .</p> 
           </div>
             </div>
-            <div class="col-3">
-              <div class="card item-card card-block">
-                <a href="Ajoute un recour.html">
-            <img src="recours.jpg">
-                </a> 
-                <h5 class="card-title  mt-3 mb-3">Ajouter un Recour</h5>
-                <p class="card-text">bababoy .</p> 
-          </div>
-            </div>
-            <div class="col-3">
-              <div class="card item-card card-block">
-                <a href="listing.php">
-            <img src="listetud.jpg" >
-                 </a> 
-                <h5 class="card-title  mt-3 mb-3">List des Etudiants</h5>
-                <p class="card-text">sahel sahel.</p> 
-          </div>
-            </div>
-            
             </div>    
           </div>
-          
         </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
