@@ -1,3 +1,7 @@
+<?php
+    require __DIR__.'/student/student-data.php';
+    require __DIR__.'/recour/recour-data.php';
+?>
 <!DOCTYPE html>
 <html lang="en" title="Coding design">
 
@@ -34,34 +38,52 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td> Youcef</td>
-                        <td> LAMARI </td>
-                        <td> lamari@gmail.com </td>
-                        <td> 2</td>
-                        <td>PAW</td>
-                        <td>CC</td>
-                        <td>4</td>
-                        <td>17</td>
-                        <td> <div class="btn-group" role="group" aria-label="Basic example">
+                        <?php 
+                        if(isset($_GET['search'])) {
+                            $students = getStudents($_GET['search']);
+                        } else {
+                            $students = getAllStudents();
+                        }
+                        
+                        foreach ($students as $student) {
+                            echo "<tr>";
+                            echo "<td> ".$student->nom."</td>";
+                            echo "<td> ".$student->prenom."</td>";
+                            echo "<td> ".$student->email."</td>";
+                            echo "<td> ".$student->groupe."</td>";
+                            
+                        }
+                        $recour = getAllRecour();
+
+                        
+                        foreach ($recour as $recour) {
+                            
+                        
+                        echo "<td> " . $recour->module . "</td>";
+                        echo "<td> " . $recour->nature . "</td>";
+                        echo "<td> " . $recour->note_affiche . "</td>";
+                        echo "<td> " . $recour->note_reel . "</td>";
+                        echo "<td> " . $recour->status . "</td>";
+                        
+                        echo "</tr>";
+                        }
+                        
+
+                    ?>
+
+                        <!--- <td> <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-secondary">favorable</button>
                             <button type="button" class="btn btn-secondary">defavorable</button>
                         </div>
-                        </td>
+                        </td> -->
                     </tr>
                     <tr>
-                        <td>Abdou </td>
-                        <td> doughmani </td>
-                        <td> abdou@gmail.com </td>
-                        <td> 3</td>
-                        <td>PAW</td>
-                        <td>CC</td>
-                        <td>4</td>
-                        <td>17</td>
-                        <td> <div class="btn-group" role="group" aria-label="Basic example">
+
+                        <!--<td> <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-secondary">favorable</button>
                             <button type="button" class="btn btn-secondary">defavorable</button>
                         </div>
-                        </td>
+                        </td>-->
                     </tr>
                 </tbody>
             </table>

@@ -3,6 +3,38 @@
     require __DIR__.'/recour.php';
 
 
+    function getAllRecour() {
+        global $conn; // Assuming $conn is your PDO database connection
+    
+        try {
+            $recours_stmt = $conn->prepare(
+                "SELECT id_student, module, nature, note_affiche, note_reel, status FROM `recours`"
+            );
+            $recours_stmt->execute();
+            $recours_data = $recours_stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+            $recours = [];
+    
+            foreach ($recours_data as $recour_data) {
+                $recour = new Recour(
+                    $recour_data['id_student'],
+                    $recour_data['module'],
+                    $recour_data['nature'],
+                    $recour_data['note_affiche'],
+                    $recour_data['note_reel'],
+                    //$recour_data['status']
+                );
+    
+                $recours[] = $recour;
+            }
+    
+            return $recours;
+    
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+            return false;
+        }
+    }
     function insertRecour($recour) {
         global $conn;
 

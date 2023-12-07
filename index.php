@@ -59,14 +59,28 @@
             <div class="col-4">
               <div class="card item-card card-block">
                 <a href="Ajouter un étudiant.html">
-            <img src="etudiants.webp" >
+                   <img src="etudiants.webp" >
                 </a> 
-                <h5 class="card-title mt-3 mb-3">Ajouter un Etudiant</h5>
-                <p class="card-text">3omar l3ziz afdal prof flbachariya .</p> 
-          </div>
+                   <h5 class="card-title mt-3 mb-3">Recours</h5>
+                    <p class="card-text">Soumettez vos informations pour déposer un recours.</p> 
+              </div>
+          
             </div>
-            </div>    
-          </div>
+         </div>
+
+    </div>
+</div>
+                
+<div id="footer-wrap"  class="container row clr" >
+
+            <div class="copyright">
+                
+
+<div class="custom"  >
+	<h6 style="text-align: center;">Copyright © 2023 - All Rights Reserved ISIL L3 Group 3<strong style="text-align: center;"><span style="font-family: terminal, monaco; color: #000000;"><br /></span></strong></h6></div>
+
+				
+            </div>
         </div>
 
 
