@@ -18,7 +18,10 @@
         <section class="table__header">
             <h1>List des Etudiants</h1>
             <div class="input-group">
-                <input type="search" placeholder="rechercher un etudiant...">
+                <form action="listingplus.php" method="get">
+                    <input name="search" type="search" placeholder="rechercher un etudiant...">
+                </form>
+                
             </div>
         </section>
         <section class="table__body">
