@@ -60,14 +60,19 @@
                                     echo "<td> " . $student->recours[0]->nature . "</td>";
                                     echo "<td> " . $student->recours[0]->note_affiche . "</td>";
                                     echo "<td> " . $student->recours[0]->note_reel . "</td>";
-                                    echo "<td> " . $student->recours[0]->status . "</td>";
                                 } else {
                                     echo "<td> / </td>";
                                     echo "<td> / </td>";
                                     echo "<td> / </td>";
                                     echo "<td> / </td>";
-                                    echo "<td> / </td>";
                                 }
+                                echo "<td>
+                                <select>
+                                    <option></option>
+                                    <option>Favorable</option>
+                                    <option>Defavorable</option>
+                                </select>
+                                </td>";
                                 echo "</tr>";
                             // }
                             
