@@ -6,9 +6,9 @@
     $email = $_POST["email"];
     $groupe = $_POST["groupe"];
 
-    $student = new Student($nom, $prenom, $email, $groupe);
-    insertStudent($student);
-    header('Location: ../listing.php');
+    $student = new Student(0,$nom, $prenom, $email, $groupe, []);
+    $saved_student_id = insertStudent($student);
+    header('Location: ../Ajoute un recour.php?id_student='.$saved_student_id);
     
 ?>
 

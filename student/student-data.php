@@ -2,42 +2,13 @@
     require dirname(__DIR__).'/connect_bdd.php';
     require __DIR__.'/student.php';
 
-    function getStudent($id) {
-        global $conn;
-
-        try {
-            $student_stmt = $conn->prepare(
-                "SELECT nom, prenom, email, groupe FROM `students` where id = :id"
-            );
-            $student_stmt->bindParam(':id', $id);
-            $student_stmt->execute();
-            $student_data = $student_stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($student_data) {
-                $student = new Student(
-                    $student_data['nom'],
-                    $student_data['prenom'],
-                    $student_data['email'],
-                    $student_data['groupe']
-                );
-                return $student;
-
-            } else {
-                echo "Student not found";
-            }
-
-          } catch(PDOException $e) {
-            echo "Query failed: " . $e->getMessage();
-          }
-    }
-
     function getStudents($search_text) {
         global $conn;
     
         try {
             $students_stmt = $conn->prepare(
                 "
-                SELECT nom, prenom, email, groupe 
+                SELECT id, nom, prenom, email, groupe 
                 FROM `students`
                 WHERE nom like :search_text
                 or prenom like :search_text
@@ -55,11 +26,14 @@
             $students = [];
     
             foreach ($students_data as $student_data) {
+                $recours = getRecoursByStudentId($student_data['id']);
                 $student = new Student(
+                    $student_data['id'],
                     $student_data['nom'],
                     $student_data['prenom'],
                     $student_data['email'],
-                    $student_data['groupe']
+                    $student_data['groupe'],
+                    $recours
                 );
     
                 $students[] = $student;
@@ -77,7 +51,7 @@
     
         try {
             $students_stmt = $conn->prepare(
-                "SELECT nom, prenom, email, groupe FROM `students`"
+                "SELECT id, nom, prenom, email, groupe FROM `students`"
             );
             $students_stmt->execute();
             $students_data = $students_stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -85,11 +59,14 @@
             $students = [];
     
             foreach ($students_data as $student_data) {
+                $recours = getRecoursByStudentId($student_data['id']);
                 $student = new Student(
+                    $student_data['id'],
                     $student_data['nom'],
                     $student_data['prenom'],
                     $student_data['email'],
-                    $student_data['groupe']
+                    $student_data['groupe'],
+                    $recours
                 );
     
                 $students[] = $student;
@@ -116,6 +93,7 @@
             $insert_stmt->bindParam(':groupe', $student->groupe);
 
             $insert_stmt->execute();
+            return $conn->lastInsertId();
 
         } catch(PDOException $e) {
             echo "Insert failed: " . $e->getMessage();

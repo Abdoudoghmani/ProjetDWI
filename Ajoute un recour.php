@@ -18,6 +18,7 @@
         </div>
         <div class="col-lg-12 login-form">
           <form action="recour/ajouter-recour.php" method="post">
+            <input type="hidden" name="id_student" value="<?php echo isset($_GET['id_student']) ? htmlspecialchars($_GET['id_student']) : ''; ?>">
             <div class="form-group">
               <label for="module" class="form-control-label">Module</label>
               <input type="text" class="form-control"id="nom" name="module" required>

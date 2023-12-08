@@ -28,10 +28,10 @@
             <table>
                 <thead>
                     <tr>
-                        <th> Nom </th>
-                        <th> Prenom </th>
-                        <th> Email </th>
-                        <th> Groupe </th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Email</th>
+                        <th>Groupe</th>
                         <th>Module</th>
                         <th>Nature de recour</th>
                         <th>Note affichee</th>
@@ -49,27 +49,31 @@
                         }
                         
                         foreach ($students as $student) {
-                            echo "<tr>";
-                            echo "<td> ".$student->nom."</td>";
-                            echo "<td> ".$student->prenom."</td>";
-                            echo "<td> ".$student->email."</td>";
-                            echo "<td> ".$student->groupe."</td>";
+                            // foreach ($student->recours as $recour) {
+                                echo "<tr>";
+                                echo "<td> ".$student->nom."</td>";
+                                echo "<td> ".$student->prenom."</td>";
+                                echo "<td> ".$student->email."</td>";
+                                echo "<td> ".$student->groupe."</td>";
+                                if (isset($student->recours[0])) {
+                                    echo "<td> " . $student->recours[0]->module . "</td>";
+                                    echo "<td> " . $student->recours[0]->nature . "</td>";
+                                    echo "<td> " . $student->recours[0]->note_affiche . "</td>";
+                                    echo "<td> " . $student->recours[0]->note_reel . "</td>";
+                                    echo "<td> " . $student->recours[0]->status . "</td>";
+                                } else {
+                                    echo "<td> / </td>";
+                                    echo "<td> / </td>";
+                                    echo "<td> / </td>";
+                                    echo "<td> / </td>";
+                                    echo "<td> / </td>";
+                                }
+                                echo "</tr>";
+                            // }
                             
                         }
-                        $recour = getAllRecour();
 
                         
-                        foreach ($recour as $recour) {
-                            
-                        
-                        echo "<td> " . $recour->module . "</td>";
-                        echo "<td> " . $recour->nature . "</td>";
-                        echo "<td> " . $recour->note_affiche . "</td>";
-                        echo "<td> " . $recour->note_reel . "</td>";
-                        echo "<td> " . $recour->status . "</td>";
-                        
-                        echo "</tr>";
-                        }
                         
 
                     ?>

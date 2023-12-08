@@ -7,12 +7,13 @@
         public $groupe;
         public $recours;
 
-        public function __construct($nom, $prenom, $email, $groupe ) {
+        public function __construct($id, $nom, $prenom, $email, $groupe, $recours = []) {
+            $this->id = $id;
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->email = $email;
             $this->groupe = $groupe;
-            $this->recours = [];
+            $this->recours = $recours;
         }
 
 
